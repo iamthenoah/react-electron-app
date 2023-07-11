@@ -1,10 +1,12 @@
 import { app, BrowserWindow } from 'electron'
+import isDev from 'electron-is-dev'
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 
 const createWindow = () => {
 	const win = new BrowserWindow({
+		icon: './public/assets/icons/app.png',
 		width: 800,
 		height: 600,
 		webPreferences: {
@@ -14,7 +16,10 @@ const createWindow = () => {
 	})
 
 	win.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
-	win.webContents.openDevTools({ mode: 'detach' })
+
+	if (isDev) {
+		win.webContents.openDevTools({ mode: 'detach' })
+	}
 }
 
 app.whenReady().then(createWindow)
