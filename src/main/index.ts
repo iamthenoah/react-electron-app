@@ -3,7 +3,7 @@ import { app, BrowserWindow } from 'electron'
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 
-function createWindow() {
+const createWindow = () => {
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
