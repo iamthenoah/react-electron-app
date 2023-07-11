@@ -1,0 +1,42 @@
+{
+	"name": "react-electron-app",
+	"version": "0.1.0",
+	"private": true,
+	"main": "./.webpack/main",
+	"scripts": {
+		"start": "electron-forge start"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^6.2.1",
+		"@electron-forge/plugin-webpack": "^6.2.1",
+		"@types/node": "^16.18.38",
+		"@types/react": "^18.2.14",
+		"@types/react-dom": "^18.2.6",
+		"@vercel/webpack-asset-relocator-loader": "^1.7.3",
+		"electron": "^25.2.0",
+		"react-scripts": "^5.0.1",
+		"ts-loader": "^9.4.4",
+		"typescript": "^4.9.5"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
