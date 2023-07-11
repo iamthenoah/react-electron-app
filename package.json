@@ -4,7 +4,8 @@
 	"private": true,
 	"main": "./.webpack/main",
 	"scripts": {
-		"start": "electron-forge start"
+		"start": "electron-forge start",
+		"package": "electron-forge package"
 	},
 	"dependencies": {
 		"@emotion/styled": "^11.11.0",
@@ -17,27 +18,9 @@
 		"@types/node": "^16.18.38",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",
-		"@vercel/webpack-asset-relocator-loader": "^1.7.3",
 		"electron": "^25.2.0",
-		"react-scripts": "^5.0.1",
+		"node-loader": "^2.0.0",
 		"ts-loader": "^9.4.4",
 		"typescript": "^4.9.5"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app"
-		]
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
 	}
 }
