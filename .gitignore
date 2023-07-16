@@ -22,6 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# webpack
 .webpack/
-out/
+
+# publishing
 target/
+out/
+dist/

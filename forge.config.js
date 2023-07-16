@@ -2,25 +2,6 @@ module.exports = {
 	packagerConfig: {
 		icon: './public/assets/icons/app'
 	},
-	publishers: [
-		{
-			name: '@electron-forge/publisher-s3',
-			config: {
-				bucket: 'bucket-name',
-				public: true
-			}
-		},
-		{
-			name: '@electron-forge/publisher-github',
-			config: {
-				repository: {
-					owner: 'github-user-name',
-					name: 'github-repo-name'
-				},
-				authToken: 'github-auth-token'
-			}
-		}
-	],
 	makers: [
 		{
 			name: '@electron-forge/maker-zip',
