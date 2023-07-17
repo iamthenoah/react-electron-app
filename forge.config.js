@@ -29,7 +29,7 @@ module.exports = {
 							html: './public/index.html',
 							js: './src/renderer/index.tsx',
 							preload: {
-								js: './src/renderer/preload.ts'
+								js: './src/main/preload.ts'
 							}
 						}
 					]
