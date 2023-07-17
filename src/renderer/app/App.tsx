@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import useElectron from '../hooks/use-electron'
+import { useElectron } from '../hooks/use-electron'
 
 const Button = styled.div<{ active?: boolean }>(({ active }) => ({
   color: active ? 'green' : 'red',

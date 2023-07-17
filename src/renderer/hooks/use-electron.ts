@@ -1,3 +1,3 @@
-export default () => {
+export const useElectron = () => {
   return window.electron // :p
 }
