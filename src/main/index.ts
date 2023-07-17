@@ -6,19 +6,19 @@ import 'dotenv/config'
 export let window: BrowserWindow | null
 
 autoUpdater.setFeedURL({
-	url: `${process.env.UPDATE_SERVER}/update/${process.platform}/${app.getVersion()}`
+  url: `${process.env.UPDATE_SERVER}/update/${process.platform}/${app.getVersion()}`
 })
 
 autoUpdater.on('update-available', () => {
-	window?.webContents.send('message', 'Update available!')
+  window?.webContents.send('message', 'Update available!')
 })
 
 autoUpdater.on('update-not-available', () => {
-	window?.webContents.send('message', 'Update not available.')
+  window?.webContents.send('message', 'Update not available.')
 })
 
 app.whenReady().then(() => {
-	window = createAppWindow()
-	Menu.setApplicationMenu(menu)
-	autoUpdater.checkForUpdates()
+  window = createAppWindow()
+  Menu.setApplicationMenu(menu)
+  autoUpdater.checkForUpdates()
 })

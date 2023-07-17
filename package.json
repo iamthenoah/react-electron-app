@@ -1,31 +1,31 @@
 {
-	"name": "react-electron-app",
-	"version": "0.1.0",
-	"private": true,
-	"main": "./.webpack/main",
-	"scripts": {
-		"start": "electron-forge start",
-		"package": "electron-forge package",
-		"publish": "electron-forge publish"
-	},
-	"dependencies": {
-		"@emotion/styled": "^11.11.0",
-		"dotenv": "^16.3.1",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	},
-	"devDependencies": {
-		"@electron-forge/cli": "^6.2.1",
-		"@electron-forge/maker-deb": "^6.2.1",
-		"@electron-forge/maker-zip": "^6.2.1",
-		"@electron-forge/plugin-webpack": "^6.2.1",
-		"@electron-forge/publisher-github": "^6.2.1",
-		"@types/node": "^16.18.38",
-		"@types/react": "^18.2.14",
-		"@types/react-dom": "^18.2.6",
-		"electron": "^25.2.0",
-		"node-loader": "^2.0.0",
-		"ts-loader": "^9.4.4",
-		"typescript": "^4.9.5"
-	}
+  "name": "react-electron-app",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./.webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "publish": "electron-forge publish"
+  },
+  "dependencies": {
+    "@emotion/styled": "^11.11.0",
+    "dotenv": "^16.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.2.1",
+    "@electron-forge/maker-deb": "^6.2.1",
+    "@electron-forge/maker-zip": "^6.2.1",
+    "@electron-forge/plugin-webpack": "^6.2.1",
+    "@electron-forge/publisher-github": "^6.2.1",
+    "@types/node": "^16.18.38",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "electron": "^25.2.0",
+    "node-loader": "^2.0.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^4.9.5"
+  }
 }

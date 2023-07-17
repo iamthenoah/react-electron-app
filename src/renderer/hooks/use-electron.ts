@@ -1,3 +1,3 @@
 export default () => {
-	return window.electron // :p
+  return window.electron // :p
 }
