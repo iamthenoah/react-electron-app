@@ -29,3 +29,7 @@ yarn-error.log*
 target/
 out/
 dist/
+
+# env
+.env
+.env.*
