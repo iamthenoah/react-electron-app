@@ -1,5 +1,4 @@
 import { app, BrowserWindow } from 'electron'
-import isDev from 'electron-is-dev'
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
@@ -17,7 +16,7 @@ const createWindow = () => {
 
 	win.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
-	if (isDev) {
+	if (!app.isPackaged) {
 		win.webContents.openDevTools({ mode: 'detach' })
 	}
 }
