@@ -16,6 +16,17 @@ module.exports = {
 			}
 		}
 	],
+	publishers: [
+		{
+			name: '@electron-forge/publisher-github',
+			config: {
+				repository: {
+					owner: 'name',
+					name: 'repo'
+				}
+			}
+		}
+	],
 	plugins: [
 		{
 			name: '@electron-forge/plugin-webpack',
