@@ -13,7 +13,7 @@ export default () => {
 
 	useEffect(() => {
 		handle('message', console.log)
-	})
+	}, [])
 
 	return (
 		<Button active={active} onClick={() => setActive(!active)}>
