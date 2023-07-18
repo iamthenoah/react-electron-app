@@ -40,7 +40,7 @@ module.exports = {
               html: './public/index.html',
               js: './src/renderer/index.tsx',
               preload: {
-                js: './src/main/preload.ts'
+                js: './src/renderer/preload.ts'
               }
             }
           ]

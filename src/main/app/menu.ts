@@ -3,23 +3,35 @@ import { autoUpdater, Menu, MenuItemConstructorOptions } from 'electron'
 const appMenu: MenuItemConstructorOptions = {
   role: 'appMenu',
   submenu: [
-    { role: 'about' },
+    {
+      role: 'about'
+    },
     {
       label: 'Check for Updates...',
-      type: 'normal',
       click: autoUpdater.checkForUpdates
     },
-    { type: 'separator' },
+    {
+      type: 'separator'
+    },
     {
       label: 'Preferences',
-      type: 'normal',
       click: () => console.log('TODO')
     },
-    { type: 'separator' },
-    { role: 'hide' },
-    { role: 'hideOthers' },
-    { type: 'separator' },
-    { role: 'quit' }
+    {
+      type: 'separator'
+    },
+    {
+      role: 'hide'
+    },
+    {
+      role: 'hideOthers'
+    },
+    {
+      type: 'separator'
+    },
+    {
+      role: 'quit'
+    }
   ]
 }
 
