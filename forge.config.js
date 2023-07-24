@@ -21,8 +21,8 @@ module.exports = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'name',
-          name: 'repo'
+          owner: 'iamthenoah',
+          name: 'react-electron-app'
         }
       }
     }

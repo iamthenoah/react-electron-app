@@ -1,7 +1,6 @@
 import { app, autoUpdater, BrowserWindow, Menu } from 'electron'
 import { createAppWindow } from './app/window'
 import menu from './app/menu'
-import 'dotenv/config'
 
 export let window: BrowserWindow | null
 
@@ -15,6 +14,10 @@ autoUpdater.on('update-available', () => {
 
 autoUpdater.on('update-not-available', () => {
   window?.webContents.send('message', 'Update not available.')
+})
+
+autoUpdater.on('error', error => {
+  window?.webContents.send('message', error.message)
 })
 
 app.whenReady().then(() => {
