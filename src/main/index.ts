@@ -1,6 +1,5 @@
-import { app, autoUpdater, BrowserWindow, Menu } from 'electron'
+import { app, autoUpdater, BrowserWindow } from 'electron'
 import { createAppWindow } from './app/window'
-import menu from './app/menu'
 
 export let window: BrowserWindow | null
 
@@ -22,6 +21,5 @@ autoUpdater.on('error', error => {
 
 app.whenReady().then(() => {
   window = createAppWindow()
-  Menu.setApplicationMenu(menu)
   autoUpdater.checkForUpdates()
 })

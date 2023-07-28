@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
+import menu from './menu'
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
@@ -13,6 +14,8 @@ export const createAppWindow = () => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
     }
   })
+
+  Menu.setApplicationMenu(menu)
 
   window.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
