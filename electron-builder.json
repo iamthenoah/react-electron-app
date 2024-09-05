@@ -1,0 +1,10 @@
+{
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "iamthenoah",
+      "repo": "react-electron-app",
+      "releaseType": "release"
+    }
+  ]
+}

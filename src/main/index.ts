@@ -1,11 +1,8 @@
-import { app, autoUpdater, BrowserWindow } from 'electron'
+import { app, BrowserWindow } from 'electron'
+import { autoUpdater } from 'electron-updater'
 import { createAppWindow } from './app/window'
 
 export let window: BrowserWindow | null
-
-autoUpdater.setFeedURL({
-  url: `${process.env.UPDATE_SERVER}/update/${process.platform}/${app.getVersion()}`
-})
 
 autoUpdater.on('update-available', () => {
   window?.webContents.send('message', 'Update available!')
@@ -21,5 +18,5 @@ autoUpdater.on('error', error => {
 
 app.whenReady().then(() => {
   window = createAppWindow()
-  autoUpdater.checkForUpdates()
+  autoUpdater.checkForUpdatesAndNotify()
 })

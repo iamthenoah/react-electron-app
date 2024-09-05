@@ -19,8 +19,8 @@ export const createAppWindow = () => {
 
   window.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
-  if (!app.isPackaged) {
-    window.webContents.openDevTools({ mode: 'detach' })
-  }
+  // if (!app.isPackaged) {
+  window.webContents.openDevTools({ mode: 'detach' })
+  // }
   return window
 }
