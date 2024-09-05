@@ -5,7 +5,8 @@ import styled from '@emotion/styled'
 const Button = styled.div<{ active?: boolean }>(({ active }) => ({
   color: active ? 'green' : 'red',
   cursor: 'pointer',
-  width: 'fit-content'
+  width: 'fit-content',
+  userSelect: 'none'
 }))
 
 export default () => {
