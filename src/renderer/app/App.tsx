@@ -4,15 +4,16 @@ import styled from '@emotion/styled'
 
 const Button = styled.div<{ active?: boolean }>(({ active }) => ({
   color: active ? 'green' : 'red',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  width: 'fit-content'
 }))
 
 export default () => {
   const [active, setActive] = useState(false)
-  const { handle } = useElectron()
+  const electron = useElectron()
 
   useEffect(() => {
-    handle('message', console.log)
+    electron.handle('message', console.log)
   }, [])
 
   return (
