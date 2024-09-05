@@ -1,17 +1,17 @@
 import { IpcRendererEvent, contextBridge, ipcRenderer } from 'electron'
 
 const api = {
-  send: (chanel: string, ...args: any[]) => {
-    ipcRenderer.send(chanel, ...args)
+  send: (channel: string, ...args: any[]) => {
+    ipcRenderer.send(channel, ...args)
   },
-  invoke: <T>(chanel: string, ...args: any[]): Promise<T> => {
-    return ipcRenderer.invoke(chanel, ...args)
+  invoke: <T>(channel: string, ...args: any[]): Promise<T> => {
+    return ipcRenderer.invoke(channel, ...args)
   },
   handle: (
-    chanel: string,
+    channel: string,
     callback: (event: IpcRendererEvent, ...args: any[]) => void
   ) => {
-    ipcRenderer.on(chanel, callback)
+    ipcRenderer.on(channel, callback)
   }
 }
 
