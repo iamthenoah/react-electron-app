@@ -22,3 +22,5 @@ jobs:
 
       - name: Run npm publish
         run: npm run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
