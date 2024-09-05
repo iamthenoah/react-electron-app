@@ -1,5 +1,6 @@
 {
   "name": "react-electron-app",
+  "description": "Boilerplate for an electron app with React in Typescript.",
   "version": "0.1.0",
   "private": true,
   "main": "./.webpack/main",
