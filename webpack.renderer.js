@@ -1,4 +1,5 @@
 const rules = require('./webpack.rules')
+const path = require('path')
 
 module.exports = {
   module: {
@@ -15,6 +16,9 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx']
+    extensions: ['.js', '.ts', '.jsx', '.tsx'],
+    alias: {
+      '@hooks': path.resolve(__dirname, 'src/renderer/hooks')
+    }
   }
 }
