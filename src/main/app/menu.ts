@@ -1,4 +1,5 @@
-import { autoUpdater, Menu, MenuItemConstructorOptions } from 'electron'
+import { Menu, MenuItemConstructorOptions } from 'electron'
+import { autoUpdater } from 'electron-updater'
 
 const appMenu: MenuItemConstructorOptions = {
   role: 'appMenu',
