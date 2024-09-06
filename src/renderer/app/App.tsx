@@ -10,16 +10,20 @@ const Button = styled.div<{ active?: boolean }>(({ active }) => ({
 }))
 
 export default () => {
-  const [active, setActive] = useState(false)
   const electron = useElectron()
+  const [info, setInfo] = useState<any>(null)
 
   useEffect(() => {
-    electron.handle('message', console.log)
+    electron.handle('message', (_, message) => console.log(message))
   }, [])
 
+  const handleCheckforUpdate = async () => {
+    setInfo(await electron.invoke('check-for-update'))
+  }
+
   return (
-    <Button active={active} onClick={() => setActive(!active)}>
-      Hello World!
+    <Button active={!!info} onClick={handleCheckforUpdate}>
+      Check for Update
     </Button>
   )
 }
