@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron'
-import { createAppWindow } from './app/window'
 import { autoUpdater } from 'electron-updater'
+import { createAppWindow } from './app/window'
 
 export let window: BrowserWindow | null
 
