@@ -4,6 +4,12 @@ import { createAppWindow } from './app/window'
 
 export let window: BrowserWindow | null
 
+autoUpdater.setFeedURL({
+  provider: 'github',
+  owner: 'iamthenoah',
+  repo: 'react-electron-app'
+})
+
 autoUpdater.on('update-available', () => {
   window?.webContents.send('message', 'Update available!')
 })
