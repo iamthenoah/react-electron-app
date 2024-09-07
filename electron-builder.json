@@ -1,0 +1,28 @@
+{
+  "appId": "com.react-electron-app",
+  "productName": "React Electron App",
+  "mac": {
+    "target": "dmg",
+    "icon": "./public/assets/icons/app.icns"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "./public/assets/icons/app.ico"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "./public/assets/icons"
+  },
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "iamthenoah",
+      "repo": "react-electron-app",
+      "private": true
+    }
+  ],
+  "directories": {
+    "output": "dist"
+  },
+  "files": ["out/**/*"]
+}

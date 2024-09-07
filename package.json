@@ -3,11 +3,13 @@
   "description": "Boilerplate for an electron app with React in Typescript.",
   "version": "0.1.0",
   "private": true,
-  "main": "./.webpack/main",
+  "main": "./out/main/index.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "publish": "electron-forge publish"
+    "start": "electron-vite dev",
+    "build": "electron-vite build",
+    "build:win": "npm run build && electron-builder --win --config",
+    "build:mac": "npm run build && electron-builder --mac --config",
+    "build:linux": "npm run build && electron-builder --linux --config"
   },
   "dependencies": {
     "@emotion/styled": "^11.13.0",
@@ -16,16 +18,13 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.4.0",
-    "@electron-forge/maker-zip": "^7.4.0",
-    "@electron-forge/plugin-webpack": "^7.4.0",
-    "@electron-forge/publisher-github": "^7.4.0",
     "@types/node": "^22.5.4",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "electron": "^32.0.2",
-    "node-loader": "^2.0.0",
-    "ts-loader": "^9.5.1",
+    "electron-builder": "^25.0.5",
+    "electron-vite": "^2.3.0",
     "typescript": "^5.5.4"
   }
 }

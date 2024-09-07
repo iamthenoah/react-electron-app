@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useElectron } from '@hooks/use-electron'
+import { useElectron } from '@/hooks/use-electron'
 import styled from '@emotion/styled'
 
 const Button = styled.div<{ active?: boolean }>(({ active }) => ({
@@ -14,7 +14,7 @@ export default () => {
   const [info, setInfo] = useState<any>(null)
 
   useEffect(() => {
-    electron.handle('message', (_, message) => console.log(message))
+    electron.handle('message', (_: any, message: any) => console.log(message))
   }, [])
 
   const handleCheckforUpdate = async () => {

@@ -1,4 +1,4 @@
-import { IpcRendererEvent, contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron'
 
 const api = {
   send: (channel: string, ...args: any[]) => {

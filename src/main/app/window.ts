@@ -1,8 +1,6 @@
 import { app, BrowserWindow, Menu } from 'electron'
 import menu from './menu'
-
-declare const MAIN_WINDOW_WEBPACK_ENTRY: string
-declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
+import path from 'path'
 
 export const createAppWindow = () => {
   const window = new BrowserWindow({
@@ -11,16 +9,18 @@ export const createAppWindow = () => {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
+      preload: path.join(__dirname, '../preload/index.js')
     }
   })
 
   Menu.setApplicationMenu(menu)
 
-  window.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
-
-  // if (!app.isPackaged) {
   window.webContents.openDevTools({ mode: 'detach' })
-  // }
+
+  if (!app.isPackaged) {
+    window.loadURL(process.env.ELECTRON_RENDERER_URL as any)
+  } else {
+    window.loadFile(path.join(__dirname, '../renderer/index.html'))
+  }
   return window
 }
