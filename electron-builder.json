@@ -17,8 +17,7 @@
     {
       "provider": "github",
       "owner": "iamthenoah",
-      "repo": "react-electron-app",
-      "private": true
+      "repo": "react-electron-app"
     }
   ],
   "directories": {

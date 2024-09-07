@@ -25,21 +25,21 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: build-linux
+      - name: Package app for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: npm run build:linux
+        run: npm run package:linux
 
-      - name: build-mac
+      - name: Package app for MacOX
         if: matrix.os == 'macos-latest'
-        run: npm run build:mac
+        run: npm run package:mac
 
-      - name: build-win
+      - name: Package app for Windows
         if: matrix.os == 'windows-latest'
-        run: npm run build:win
+        run: npm run package:win
 
-      - name: release
+      - name: Release on Github
         uses: softprops/action-gh-release@v2
         with:
           draft: true

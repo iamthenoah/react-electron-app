@@ -1,15 +1,14 @@
 {
-  "name": "react-electron-app",
+  "name": "react.electron.app",
   "description": "Boilerplate for an electron app with React in Typescript.",
+  "author": "iamthenoah",
   "version": "0.1.0",
-  "private": true,
   "main": "./out/main/index.js",
   "scripts": {
     "start": "electron-vite dev",
-    "build": "electron-vite build",
-    "build:win": "npm run build && electron-builder --win --config",
-    "build:mac": "npm run build && electron-builder --mac --config",
-    "build:linux": "npm run build && electron-builder --linux --config"
+    "package:win": "electron-vite build && electron-builder --win --config",
+    "package:mac": "electron-vite build && electron-builder --mac --config",
+    "package:linux": "electron-vite build && electron-builder --linux --config"
   },
   "dependencies": {
     "@emotion/styled": "^11.13.0",
