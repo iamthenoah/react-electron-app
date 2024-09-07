@@ -2,15 +2,15 @@
   "appId": "com.react-electron-app",
   "productName": "React Electron App",
   "mac": {
-    "target": "dmg",
+    "target": ["dmg", "zip"],
     "icon": "./public/assets/icons/app.icns"
   },
   "win": {
-    "target": "nsis",
+    "target": ["nsis"],
     "icon": "./public/assets/icons/app.ico"
   },
   "linux": {
-    "target": "AppImage",
+    "target": ["AppImage"],
     "icon": "./public/assets/icons/app.png"
   },
   "publish": [

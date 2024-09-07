@@ -9,7 +9,7 @@ const appMenu: MenuItemConstructorOptions = {
     },
     {
       label: 'Check for Updates...',
-      click: () => autoUpdater.checkForUpdates()
+      click: () => autoUpdater.checkForUpdatesAndNotify()
     },
     {
       type: 'separator'
