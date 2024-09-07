@@ -11,7 +11,7 @@
   },
   "linux": {
     "target": "AppImage",
-    "icon": "./public/assets/icons"
+    "icon": "./public/assets/icons/app.png"
   },
   "publish": [
     {
