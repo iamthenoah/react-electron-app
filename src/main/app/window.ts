@@ -7,7 +7,9 @@ export const createAppWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js')
+      preload: path.join(__dirname, '../preload/index.js'),
+      nodeIntegration: true,
+      contextIsolation: true
     }
   })
 
