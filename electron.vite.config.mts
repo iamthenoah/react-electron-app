@@ -7,7 +7,13 @@ export default defineConfig({
     // configs
   },
   preload: {
-    // configs
+    build: {
+      rollupOptions: {
+        input: {
+          index: path.resolve(__dirname, 'src/preload.ts')
+        }
+      }
+    }
   },
   renderer: {
     plugins: [react()],

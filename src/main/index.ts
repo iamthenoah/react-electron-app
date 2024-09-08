@@ -7,7 +7,8 @@ export let window: BrowserWindow | null
 autoUpdater.setFeedURL({
   provider: 'github',
   owner: 'iamthenoah',
-  repo: 'react-electron-app'
+  repo: 'react-electron-app',
+  token: import.meta.env.MAIN_VITE_GH_TOKEN
 })
 
 autoUpdater.on('update-available', () => {
