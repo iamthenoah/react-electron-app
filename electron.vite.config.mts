@@ -1,13 +1,16 @@
-import { defineConfig } from 'electron-vite'
+import { defineConfig, bytecodePlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import dotenv from 'dotenv'
+
+const protectedStrings = Object.values(dotenv.config().parsed as Record<string, string>)
 
 export default defineConfig({
   main: {
-    // configs
+    plugins: [bytecodePlugin({ protectedStrings })]
   },
   preload: {
-    // configs
+    plugins: [bytecodePlugin({ protectedStrings })]
   },
   renderer: {
     plugins: [react()],
