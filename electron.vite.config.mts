@@ -1,5 +1,5 @@
 import { defineConfig, bytecodePlugin } from 'electron-vite'
-import react from '@vitejs/plugin-react'
+import reactPlugin from '@vitejs/plugin-react'
 import path from 'path'
 import dotenv from 'dotenv'
 
@@ -13,7 +13,7 @@ export default defineConfig({
     plugins: [bytecodePlugin({ protectedStrings })]
   },
   renderer: {
-    plugins: [react()],
+    plugins: [reactPlugin()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src/renderer/app')
