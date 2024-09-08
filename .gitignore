@@ -21,7 +21,6 @@ yarn-error.log*
 target/
 out/
 dist/
-build/
 
 # env
 .env
