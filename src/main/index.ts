@@ -26,4 +26,4 @@ app.whenReady().then(() => {
   autoUpdater.checkForUpdatesAndNotify()
 })
 
-import './handlers'
+import './app/handlers'
