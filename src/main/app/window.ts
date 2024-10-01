@@ -4,23 +4,20 @@ import path from 'path'
 
 export const createAppWindow = () => {
   const window = new BrowserWindow({
-    width: 800,
-    height: 600,
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
-      nodeIntegration: true,
-      contextIsolation: true
-    }
+      preload: path.join(__dirname, '../preload/index.js')
+    },
+    width: 800,
+    height: 600
   })
 
   Menu.setApplicationMenu(menu)
 
-  window.webContents.openDevTools({ mode: 'detach' })
-
-  if (!app.isPackaged) {
-    window.loadURL(process.env.ELECTRON_RENDERER_URL!)
-  } else {
+  if (app.isPackaged) {
     window.loadFile(path.join(__dirname, '../renderer/index.html'))
+  } else {
+    window.loadURL(process.env.ELECTRON_RENDERER_URL!)
+    window.webContents.openDevTools({ mode: 'detach' })
   }
   return window
 }
