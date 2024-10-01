@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron'
+import { app, BrowserWindow } from 'electron'
 import menu from './menu'
 import path from 'path'
 
@@ -11,7 +11,7 @@ export const createAppWindow = () => {
     height: 600
   })
 
-  Menu.setApplicationMenu(menu)
+  window.setMenu(menu)
 
   if (app.isPackaged) {
     window.loadFile(path.join(__dirname, '../renderer/index.html'))
