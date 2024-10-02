@@ -36,4 +36,4 @@ const appMenu: MenuItemConstructorOptions = {
   ]
 }
 
-export default Menu.buildFromTemplate([appMenu])
+export const menu = Menu.buildFromTemplate([appMenu])
