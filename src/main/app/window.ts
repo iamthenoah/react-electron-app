@@ -12,9 +12,9 @@ export const createAppWindow = () => {
   window.setMenu(menu)
 
   if (app.isPackaged) {
-    window.loadFile(path.join(__dirname, '../renderer/index.html'))
-  } else {
     window.loadURL(process.env.ELECTRON_RENDERER_URL!)
+  } else {
+    window.loadFile(path.join(__dirname, '../renderer/index.html'))
     window.webContents.openDevTools({ mode: 'detach' })
   }
   return window
