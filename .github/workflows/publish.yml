@@ -27,17 +27,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Package app for Linux
-        if: matrix.os == 'ubuntu-latest'
-        run: npm run package:lin
-
-      - name: Package app for MacOS
-        if: matrix.os == 'macos-latest'
-        run: npm run package:mac
-
-      - name: Package app for Windows
-        if: matrix.os == 'windows-latest'
-        run: npm run package:win
+      - name: Package Application
+        run: npm run package
 
       - name: Release on Github
         uses: softprops/action-gh-release@v2

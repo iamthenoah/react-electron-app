@@ -6,9 +6,7 @@
   "main": "./out/main/index.js",
   "scripts": {
     "start": "electron-vite dev",
-    "package:win": "electron-vite build && electron-builder --win",
-    "package:mac": "electron-vite build && electron-builder --mac",
-    "package:lin": "electron-vite build && electron-builder --linux"
+    "package": "electron-vite build && electron-builder"
   },
   "dependencies": {
     "@emotion/styled": "^11.13.0",
