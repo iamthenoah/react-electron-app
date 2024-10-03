@@ -2,7 +2,6 @@
   "name": "react-electron-app",
   "description": "Boilerplate for an electron app with React in Typescript.",
   "author": "iamthenoah",
-  "version": "0.1.0",
   "main": "./out/main/index.js",
   "scripts": {
     "start": "electron-vite dev",

@@ -40,7 +40,6 @@ jobs:
           let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
           pkg.version = '$VERSION';
           fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
-          console.log('Updated package.json to version $VERSION');
           "
 
       - name: Install Dependencies
