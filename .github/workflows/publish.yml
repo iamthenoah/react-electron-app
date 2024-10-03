@@ -23,12 +23,25 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18
 
-      - name: Update package.json version
-        uses: BellCubeDev/update-package-version-by-release-tag@v2
-        with:
-          version: ${{ github.ref_name }}
+      - name: Determine and update version
+        run: |
+          VERSION="${{ github.ref_name }}"
+          if [ -z "$VERSION" ]; then
+            VERSION="${GITHUB_REF_NAME}"
+            echo "Using tag name as version: $VERSION"
+          else
+            echo "Using provided version: $VERSION"
+          fi
+
+          node -e "
+          let fs = require('fs');
+          let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+          pkg.version = '$VERSION';
+          fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
+          console.log('Updated package.json to version $VERSION');
+          "
 
       - name: Install Dependencies
         run: npm ci
