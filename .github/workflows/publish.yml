@@ -27,18 +27,10 @@ jobs:
 
       - name: Determine and update version
         run: |
-          VERSION="${{ github.ref_name }}"
-          if [ -z "$VERSION" ]; then
-            VERSION="${GITHUB_REF_NAME}"
-            echo "Using tag name as version: $VERSION"
-          else
-            echo "Using provided version: $VERSION"
-          fi
-
           node -e "
           let fs = require('fs');
           let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-          pkg.version = '$VERSION';
+          pkg.version = '${{ github.ref_name }}';
           fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
           "
 
