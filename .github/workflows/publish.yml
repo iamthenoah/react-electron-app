@@ -27,6 +27,8 @@ jobs:
 
       - name: Update package.json version
         uses: BellCubeDev/update-package-version-by-release-tag@v2
+        with:
+          version: ${{ github.ref_name }}
 
       - name: Install Dependencies
         run: npm ci
