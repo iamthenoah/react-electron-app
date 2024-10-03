@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Update package.json version
+        uses: BellCubeDev/update-package-version-by-release-tag@v2
+
       - name: Install Dependencies
         run: npm ci
 
