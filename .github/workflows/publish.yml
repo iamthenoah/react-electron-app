@@ -31,7 +31,7 @@ jobs:
           node -e "
           let fs = require('fs');
           let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-          pkg.version = '${{ github.ref_name }}';
+          pkg.version = '1234';
           fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
           "
 
