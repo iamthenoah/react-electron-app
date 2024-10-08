@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: all
+  contents: write
   
 jobs:
   release:
