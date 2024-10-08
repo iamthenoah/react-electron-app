@@ -41,7 +41,7 @@ jobs:
       - name: Package Application
         run: npm run package
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release on Github
         uses: softprops/action-gh-release@v2
