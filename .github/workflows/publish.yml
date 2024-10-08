@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: all
+  
 jobs:
   release:
     runs-on: ${{ matrix.os }}
@@ -12,9 +15,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
       - name: Checkout repository
