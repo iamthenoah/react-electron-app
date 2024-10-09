@@ -29,6 +29,8 @@ jobs:
         uses: iamthenoah/update-package-version@v1
         with:
           branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Dependencies
         run: npm ci
