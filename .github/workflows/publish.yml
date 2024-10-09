@@ -25,14 +25,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Determine and update version
-        run: |
-          node -e "
-          let fs = require('fs');
-          let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-          pkg.version = '${{ github.ref_name }}';
-          fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
-          "
+      - name: Package Version Change
+        uses: iamthenoah/update-package-version@v1
+        with:
+          branch: master
 
       - name: Install Dependencies
         run: npm ci
