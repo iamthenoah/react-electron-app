@@ -26,8 +26,11 @@ jobs:
           node-version: 18
 
       - name: Package Version Change
-        uses: iamthenoah/update-package-version@v1
+        uses: iamthenoah/gh-action-update-json@v1
         with:
+          file: 'package.json'
+          key: 'version'
+          value: ${{ github.ref_name }}
           branch: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
