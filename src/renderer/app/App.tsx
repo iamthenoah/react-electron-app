@@ -1,13 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useElectron } from '@/hooks/use-electron'
-import styled from '@emotion/styled'
-
-const Button = styled.div<{ active?: boolean }>(({ active }) => ({
-  color: active ? 'green' : 'red',
-  cursor: 'pointer',
-  width: 'fit-content',
-  userSelect: 'none'
-}))
 
 export default () => {
   const electron = useElectron()
@@ -22,8 +14,8 @@ export default () => {
   }
 
   return (
-    <Button active={!!info} onClick={handleCheckforUpdate}>
+    <button style={{ color: info ? 'green' : 'red' }} onClick={handleCheckforUpdate}>
       Check for Update
-    </Button>
+    </button>
   )
 }
