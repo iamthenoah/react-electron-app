@@ -14,7 +14,7 @@ export default () => {
   const [info, setInfo] = useState<any>(null)
 
   useEffect(() => {
-    electron.handle('message', (_: any, message: any) => console.log(message))
+    electron.on('message', (_: any, message: any) => console.log(message))
   }, [])
 
   const handleCheckforUpdate = async () => {
