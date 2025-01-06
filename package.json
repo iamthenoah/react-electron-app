@@ -1,6 +1,6 @@
 {
   "name": "react-electron-app",
-  "description": "Boilerplate for an electron app with React in Typescript.",
+  "description": "Boilerplate for an electron app with React in TS.",
   "author": "iamthenoah",
   "main": "./out/main/index.js",
   "scripts": {
