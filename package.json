@@ -2,7 +2,7 @@
   "name": "react-electron-app",
   "description": "Boilerplate for an electron app with React in TS.",
   "author": "iamthenoah",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./out/main/index.js",
   "scripts": {
     "start": "electron-vite dev",
