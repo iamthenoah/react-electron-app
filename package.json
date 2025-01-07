@@ -22,5 +22,6 @@
     "electron-builder": "^25.0.5",
     "electron-vite": "^2.3.0",
     "typescript": "^5.5.4"
-  }
+  },
+  "version": "0.0.9"
 }
