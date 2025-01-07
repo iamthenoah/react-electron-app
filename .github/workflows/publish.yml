@@ -35,17 +35,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Dependencies
-        run: npm ci
+      # - name: Install Dependencies
+      #   run: npm ci
 
-      - name: Package Application
-        run: npm run package
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Package Application
+      #   run: npm run package
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Release on Github
-        uses: softprops/action-gh-release@v2
-        with:
-          make_latest: true
-          files: dist/*.*
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Release on Github
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     make_latest: true
+      #     files: dist/*.*
+      #     token: ${{ secrets.GITHUB_TOKEN }}
