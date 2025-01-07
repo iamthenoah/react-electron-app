@@ -22,7 +22,7 @@ jobs:
           node-version: 18
 
       - name: Package Version Change
-        uses: iamthenoah/gh-action-update-json@master
+        uses: iamthenoah/gh-action-update-json@v3
         with:
           branch: master
           file: package.json
