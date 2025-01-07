@@ -22,7 +22,7 @@ jobs:
           node-version: 18
 
       - name: Package Version Change
-        uses: iamthenoah/gh-action-update-json@v3
+        uses: iamthenoah/gh-action-update-json@master
         with:
           branch: master
           file: package.json
@@ -31,38 +31,38 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # release-app-build:
-  #   needs: update-app-version
+  release-app-build:
+    needs: update-app-version
 
-  #   strategy:
-  #     matrix:
-  #       os: [ubuntu-latest, macos-latest, windows-latest]
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
-  #   runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-  #   permissions:
-  #     contents: write
+    permissions:
+      contents: write
 
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-  #     - name: Install Dependencies
-  #       run: npm ci
+      - name: Install Dependencies
+        run: npm ci
 
-  #     - name: Package Application
-  #       run: npm run package
-  #       env:
-  #         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Package Application
+        run: npm run package
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  #     - name: Release on Github
-  #       uses: softprops/action-gh-release@v2
-  #       with:
-  #         make_latest: true
-  #         files: dist/*.*
-  #         token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release on Github
+        uses: softprops/action-gh-release@v2
+        with:
+          make_latest: true
+          files: dist/*.*
+          token: ${{ secrets.GITHUB_TOKEN }}
