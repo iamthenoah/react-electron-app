@@ -49,9 +49,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Ensure latest commit is pulled
-        run: git pull origin master
+        with:
+          ref: master
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
