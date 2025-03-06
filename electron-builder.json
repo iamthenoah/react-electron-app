@@ -2,7 +2,10 @@
   "appId": "com.react-electron-app",
   "productName": "React Electron App",
   "mac": {
-    "target": ["dmg", "zip"]
+    "target": [
+      "dmg",
+      "zip"
+    ]
   },
   "win": {
     "target": "nsis"
@@ -20,5 +23,7 @@
   "directories": {
     "output": "dist"
   },
-  "files": ["out/**/*"]
+  "files": [
+    "out/**/*"
+  ]
 }

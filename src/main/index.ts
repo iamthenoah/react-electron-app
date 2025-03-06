@@ -5,25 +5,25 @@ import { createAppWindow } from './app/window'
 export let window: BrowserWindow | null
 
 autoUpdater.setFeedURL({
-  provider: 'github',
-  owner: 'iamthenoah',
-  repo: 'react-electron-app',
-  token: (import.meta as any).env.MAIN_VITE_GH_TOKEN
+	provider: 'github',
+	owner: 'iamthenoah',
+	repo: 'react-electron-app',
+	token: (import.meta as any).env.MAIN_VITE_GH_TOKEN
 })
 
 autoUpdater.on('update-available', () => {
-  window?.webContents.send('message', 'Update available!')
+	window?.webContents.send('message', 'Update available!')
 })
 autoUpdater.on('update-not-available', () => {
-  window?.webContents.send('message', 'Update not available.')
+	window?.webContents.send('message', 'Update not available.')
 })
 autoUpdater.on('error', error => {
-  window?.webContents.send('message', error.message)
+	window?.webContents.send('message', error.message)
 })
 
 app.whenReady().then(() => {
-  window = createAppWindow()
-  autoUpdater.checkForUpdatesAndNotify()
+	window = createAppWindow()
+	autoUpdater.checkForUpdatesAndNotify()
 })
 
 import './app/handlers'
