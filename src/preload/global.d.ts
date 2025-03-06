@@ -1,7 +1,7 @@
-import { ElectronApi } from '.'
+import { AppAPi } from '.'
 
 declare global {
-  interface Window {
-    electron: ElectronApi
-  }
+	interface Window {
+		app: AppAPi
+	}
 }
