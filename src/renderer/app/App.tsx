@@ -8,7 +8,7 @@ export default () => {
 	}, [])
 
 	const handleCheckforUpdate = async () => {
-		setInfo(await window.app.invoke('check-for-update'))
+		window.app.invoke('check-for-update').then(setInfo)
 	}
 
 	return (
