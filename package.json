@@ -14,14 +14,14 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.15.29",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5",
-    "@vitejs/plugin-react": "^4.5.0",
-    "dotenv": "^16.5.0",
-    "electron": "^36.3.2",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.7.0",
+    "dotenv": "^17.2.0",
+    "electron": "^37.2.3",
     "electron-builder": "^26.0.12",
-    "electron-vite": "^3.1.0",
+    "electron-vite": "^4.0.0",
     "typescript": "^5.8.3"
   }
 }
