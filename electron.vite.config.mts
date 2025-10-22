@@ -9,9 +9,9 @@ export default defineConfig({
 		plugins: [bytecodePlugin({ protectedStrings })]
 	},
 	preload: {
-		plugins: [bytecodePlugin({ protectedStrings })]
+		plugins: [] // empty
 	},
 	renderer: {
-		plugins: [bytecodePlugin({ protectedStrings }), reactPlugin()]
+		plugins: [reactPlugin()]
 	}
 })
