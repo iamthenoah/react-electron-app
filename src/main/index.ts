@@ -8,7 +8,7 @@ autoUpdater.setFeedURL({
 	provider: 'github',
 	owner: 'iamthenoah',
 	repo: 'react-electron-app',
-	token: (import.meta as any).env.MAIN_VITE_GH_TOKEN
+	private: true
 })
 
 autoUpdater.on('update-available', () => {
