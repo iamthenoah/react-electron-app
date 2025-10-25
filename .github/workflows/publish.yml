@@ -59,6 +59,6 @@ jobs:
         run: npm ci
 
       - name: Package Application
-        run: npm run package -- --publish always
+        run: npm run package -- --publish onTagOrDraft
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
