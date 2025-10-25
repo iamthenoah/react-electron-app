@@ -14,7 +14,7 @@ export default () => {
 	return (
 		<div>
 			<button onClick={handleCheckforUpdate}>Check for Update</button>
-			{info && <pre>{JSON.stringify(info, null, 2)}</pre>}
+			<div>{info && <pre>{JSON.stringify(info, null, 2)}</pre>}</div>
 		</div>
 	)
 }
