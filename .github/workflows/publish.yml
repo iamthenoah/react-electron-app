@@ -24,6 +24,7 @@ jobs:
       - name: Package Version Change
         uses: iamthenoah/gh-action-update-json@v4
         with:
+          branch: master
           message: 'New release version: %v'
           file: package.json
           key: version
