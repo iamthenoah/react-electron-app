@@ -12,8 +12,11 @@ export default () => {
 	}
 
 	return (
-		<button style={{ color: info ? 'green' : 'red' }} onClick={handleCheckforUpdate}>
-			Check for Update
-		</button>
+		<div>
+			<button style={{ color: info ? 'green' : 'red' }} onClick={handleCheckforUpdate}>
+				Check for Update
+			</button>
+			{info && <pre>{JSON.stringify(info, null, 2)}</pre>}
+		</div>
 	)
 }
