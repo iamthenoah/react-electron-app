@@ -15,9 +15,11 @@
   },
   "publish": [
     {
-      "provider": "github",
-      "owner": "iamthenoah",
-      "repo": "react-electron-app"
+      "provider": "s3",
+      "bucket": "react-electron-app-release",
+      "region": "auto",
+      "endpoint": "<YOUR_S3_COMPATIBLE_ENDPOINT>",
+      "acl": "public-read"
     }
   ],
   "directories": {

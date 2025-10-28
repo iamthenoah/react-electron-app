@@ -1,9 +1,8 @@
 name: publish
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published]
 
 jobs:
   update-app-version:
@@ -28,12 +27,25 @@ jobs:
           message: 'New release version: %v'
           file: package.json
           key: version
-          value: ${{ github.ref_name }}
+          value: ${{ github.event.release.tag_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  release-app-build:
+  clear-update-bucket:
     needs: update-app-version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clear Bucket
+        run: |
+          aws s3 rm s3://react-electron-app-release --recursive --endpoint-url $AWS_BUCKET_ENDPOINT
+        env:
+          AWS_BUCKET_ENDPOINT: ${{ secrets.AWS_BUCKET_ENDPOINT }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  release-app-build:
+    needs: clear-update-bucket
 
     strategy:
       matrix:
@@ -59,6 +71,25 @@ jobs:
         run: npm ci
 
       - name: Package Application
-        run: npm run package -- --publish onTagOrDraft
+        run: npm run package
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          
+      - name: Upload dist to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.*
+          append_body: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  rollback-version:
+    needs: release-app-build
+    if: ${{ always() && needs.release-app-build.result == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: git revert --no-edit HEAD
+      - run: git push origin master

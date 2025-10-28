@@ -5,10 +5,8 @@ import { createAppWindow } from './app/window'
 export let window: BrowserWindow | null
 
 autoUpdater.setFeedURL({
-	provider: 'github',
-	owner: 'iamthenoah',
-	repo: 'react-electron-app',
-	token: (import.meta as any).env.MAIN_VITE_GH_TOKEN
+	provider: 'generic',
+	url: (import.meta as any).env.MAIN_VITE_UPDATE_ENDPOINT
 })
 
 autoUpdater.on('update-available', () => {
