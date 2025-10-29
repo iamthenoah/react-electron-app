@@ -5,9 +5,5 @@
 out/
 dist/
 
-# env
-.env
-.env.*
-
 # misc
 .DS_Store

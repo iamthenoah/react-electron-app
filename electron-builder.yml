@@ -1,0 +1,26 @@
+appId: com.react-electron-app
+productName: React Electron App
+
+mac:
+  target:
+    - dmg
+    - zip
+
+win:
+  target: nsis
+
+linux:
+  target: AppImage
+
+publish:
+  - provider: s3
+    region: auto
+    acl: public-read
+    bucket: ${env.AWS_BUCKET_NAME}
+    endpoint: ${env.AWS_BUCKET_ENDPOINT}
+
+directories:
+  output: dist
+
+files:
+  - out/**/*

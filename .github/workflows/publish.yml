@@ -36,13 +36,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clear Bucket
-        run: |
-          aws s3 rm s3://react-electron-app-release --recursive --endpoint-url $AWS_BUCKET_ENDPOINT
-        env:
-          AWS_BUCKET_ENDPOINT: ${{ secrets.AWS_BUCKET_ENDPOINT }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Clear Bucket
+      run: |
+        aws s3 rm s3://$AWS_BUCKET_NAME --recursive --endpoint-url $AWS_BUCKET_ENDPOINT
+      env:
+        AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
+        AWS_BUCKET_ENDPOINT: ${{ secrets.AWS_BUCKET_ENDPOINT }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   release-app-build:
     needs: clear-update-bucket
@@ -74,9 +75,11 @@ jobs:
         run: npm run package
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
+          AWS_BUCKET_ENDPOINT: ${{ secrets.AWS_BUCKET_ENDPOINT }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          
+
       - name: Upload dist to Release
         uses: softprops/action-gh-release@v2
         with:
@@ -85,8 +88,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   rollback-version:
-    needs: release-app-build
-    if: ${{ always() && needs.release-app-build.result == 'failure' }}
+    if: ${{ failure() }}
     runs-on: ubuntu-latest
 
     steps:
